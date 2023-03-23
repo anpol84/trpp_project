@@ -44,7 +44,11 @@ public class HomeFragment extends Fragment {
     public HomeFragment() {
         // Required empty public constructor
     }
-
+    /**
+     * Retrieves arguments from the fragment's arguments bundle.
+     *
+     * @param savedInstanceState Bundle object containing the fragment's keys/values.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +58,14 @@ public class HomeFragment extends Fragment {
         }
     }
 
+    /**
+     * Inflates the view for this fragment.
+     *
+     * @param inflater LayoutInflater object.
+     * @param container ViewGroup object.
+     * @param savedInstanceState Bundle object containing the fragment's keys/values.
+     * @return Inflated view for this fragment.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

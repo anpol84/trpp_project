@@ -8,10 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProfileFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * ProfileFragment is a fragment that displays the user's profile information.
+ * This fragment is responsible for displaying the user's name, profile picture, and other relevant information.
+ * The information is retrieved from the associated ViewModel, which is responsible for fetching the data from the database.
  */
 public class ProfileFragment extends Fragment {
 
@@ -24,6 +25,9 @@ public class ProfileFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    /**
+     * Required empty public constructor
+     */
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -45,7 +49,12 @@ public class ProfileFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
+    /**
+     * This method is called when the fragment is first created.
+     * It retrieves any saved data from the Bundle and initializes the ViewModel.
+     *
+     * @param savedInstanceState Bundle object containing the fragment's previously saved state, or null if the fragment has no saved state.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +63,14 @@ public class ProfileFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+    /**
+     * Inflates the view for this fragment.
+     *
+     * @param inflater LayoutInflater object.
+     * @param container ViewGroup object.
+     * @param savedInstanceState Bundle object containing the fragment's keys/values.
+     * @return Inflated view for this fragment.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
