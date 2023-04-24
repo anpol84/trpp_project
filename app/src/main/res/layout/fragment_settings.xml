@@ -4,14 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingsFragment"
-    android:background="@color/teal_700">
+    android:background="#DFEFF6">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Settings Fragment"
-        android:layout_gravity="center"
-        android:textSize="26dp"
-        android:textColor="@color/white"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150dp"
+        android:text="Прогресс: "
+        android:id="@+id/settings_progress_text"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#03A9F4"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="250dp"
+        android:text="Ваш уровень: "
+        android:id="@+id/settings_level_text"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#03A9F4"/>
 
 </FrameLayout>
