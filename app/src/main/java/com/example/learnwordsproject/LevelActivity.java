@@ -13,8 +13,8 @@ import java.util.ArrayList;
 public class LevelActivity extends AppCompatActivity {
 
     ArrayList<String> listItems = new ArrayList<>();
-    static ArrayList<Word> words = new ArrayList<>();
-
+    public static ArrayList<Word> words = new ArrayList<>();
+    static int currentPosition;
     ArrayAdapter<String> adapter;
 
     @Override
@@ -24,14 +24,17 @@ public class LevelActivity extends AppCompatActivity {
 
         TextView textView = findViewById(R.id.levelacttextView);
 
-        int pos = getMyIntent();
+        currentPosition = getMyIntent();
 
-        textView.setText("Уровень " + (pos + 1));
+        textView.setText("Уровень " + (currentPosition + 1));
 
-        fillListAndWordsItems(pos);
+        fillListAndWordsItems();
 
         setListItems();
 
+        findViewById(R.id.learn_button).setOnClickListener((b)->{
+            startActivity(new Intent(this, LearnActivity.class));
+        });
     }
 
     private void setListItems() {
@@ -46,13 +49,14 @@ public class LevelActivity extends AppCompatActivity {
         return pos;
     }
 
-    private void fillListAndWordsItems(int pos) {
-        int startnumber = pos * 30;
+    private void fillListAndWordsItems() {
+        int startnumber = currentPosition * 30;
+        words.clear();
         listItems.clear();
         for (int i = startnumber; i < startnumber + 30; i++) {
             Word word = new Word(englishWordsArr[i], russianWordsArr[i]);
             words.add(word);
-            listItems.add(i%30 + " "+word.englishWord + " — " + word.russianWord);
+            listItems.add(i%30+1 + ". "+word.englishWord + " — " + word.russianWord);
         }
     }
 

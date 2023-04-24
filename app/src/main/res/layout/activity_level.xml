@@ -18,9 +18,59 @@
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="25dp"
         android:textStyle="bold"
-        android:textColor="@color/main" />
+        android:textColor="@color/blue" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="318dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="44dp"
+        android:text="Тест"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:backgroundTint="@color/blue"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/learn_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal"
+            android:onClick="onClick"
+            android:text="Учить" />
+
+        <Button
+            android:id="@+id/cards_ru_en_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:width="157dp"
+            android:gravity="center_horizontal"
+            android:text="Карточкки Ru-En" />
+
+        <Button
+            android:id="@+id/cards_en_ru_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:gravity="center_horizontal"
+            android:text="Карточкки En-Ru" />
+    </LinearLayout>
 
     <ListView
+        android:id="@+id/list_view"
         android:layout_width="300dp"
         android:layout_height="350dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,7 +78,8 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.286"
-        android:id="@+id/list_view"/>
+        app:layout_constraintVertical_bias="0.249">
+
+    </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
