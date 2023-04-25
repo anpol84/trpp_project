@@ -1,6 +1,7 @@
 package com.example.learnwordsproject;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         String levelNum = levelsArrList.get(position);
         holder.levelNumber.setText(levelNum);
+        if(position < MainActivity.userProgress/30)
+            holder.levelNumber.setBackgroundColor(Color.parseColor("#4CAF50"));
     }
 
     @Override

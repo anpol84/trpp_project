@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.learnwordsproject.databinding.ActivityMainBinding;
+
 /**
  * MainActivity is the main activity class of the application.
  * This activity displays the bottom navigation bar and handles navigation between different fragments.
@@ -18,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     ActivityMainBinding binding; //чел в видео использует binding, видимо как-то удобнее работать с элементами
+
+    public static Integer userProgress;
+
     /**
      * This method is called when the activity is starting. It is responsible for setting up the UI
      * and handling navigation between fragments.
@@ -32,9 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
         replaceFragment(new HomeFragment()); // Когда открываем приложение показываем HomeFragment
 
+        getProgressFromFile();
+
+
         binding.bottomNavigaionView.setOnItemSelectedListener(item -> { // Обработка нажатия на bottomNavMenu
 
-            switch (item.getItemId()){
+            switch (item.getItemId()) {
                 case R.id.home:
                     replaceFragment(new HomeFragment());
                     break;
@@ -50,17 +58,32 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void getProgressFromFile() {
+        SharedPreferences sharedPreferences = getSharedPreferences("myPrefs", MODE_PRIVATE);
+        userProgress = sharedPreferences.getInt("progress", -1);
+        if (userProgress == -1) {
+            userProgress = 0;
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putInt("progress", userProgress);
+            editor.apply();
+        }
+    }
+
     /**
      * Replaces the current fragment in the FrameLayout container with a new fragment.
      *
      * @param fragment The fragment to replace the current fragment.
      */
-    public void replaceFragment(Fragment fragment){ // метод для замены фрагмента
+    public void replaceFragment(Fragment fragment) { // метод для замены фрагмента
 
         FragmentManager fragmentManager = getSupportFragmentManager(); //cлужебные вызовы
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         fragmentTransaction.replace(R.id.frame_layout, fragment); //заменяем текущий фрагмент в рамке на fragment
         fragmentTransaction.commit();
+    }
+
+    public static void setUserProgress(int userProgress) {
+        MainActivity.userProgress = userProgress;
     }
 }

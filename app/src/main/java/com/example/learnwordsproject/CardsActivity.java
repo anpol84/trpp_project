@@ -57,6 +57,11 @@ public class CardsActivity extends AppCompatActivity {
             usedWords.add(LevelActivity.words.indexOf(currentWord));
             hideItems();
         });
+        findViewById(R.id.cards_back_button).setOnClickListener(b->{
+            Intent intent = new Intent(this, LevelActivity.class);
+            intent.putExtra("POS", LevelActivity.currentPosition);
+            startActivity(intent);
+        });
     }
 
     private void hideItems() {

@@ -2,11 +2,14 @@ package com.example.learnwordsproject;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,5 +39,21 @@ public class SettingsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_settings, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        TextView progressText = view.findViewById(R.id.settings_progress_text);
+        TextView levelText = view.findViewById(R.id.settings_level_text);
+
+        progressText.setText("Прогресс: "+MainActivity.userProgress+" слов");
+        int progress = MainActivity.userProgress;
+        int level =1;
+        while (progress>=30){
+            progress-=30;
+            level+=1;
+        }
+        levelText.setText("Уровень: "+level);
     }
 }

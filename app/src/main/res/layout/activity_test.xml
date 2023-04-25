@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LearnActivity">
+    tools:context=".TestActivity">
 
     <TextView
-        android:id="@+id/learn_word_en"
+        android:id="@+id/test_text_word"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="132dp"
@@ -19,21 +19,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/learn_word_ru"
+    <EditText
+        android:id="@+id/test_edit_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
         android:layout_marginTop="156dp"
-        android:text="Word2"
-        android:textColor="@color/main"
-        android:textSize="30sp"
+        android:ems="10"
+        android:hint="Answer"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/main"
+        android:textSize="25dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/learn_word_en" />
+        app:layout_constraintTop_toBottomOf="@+id/test_text_word" />
+
+    <Button
+        android:id="@+id/test_check_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="116dp"
+        android:text="Проверить"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/test_edit_text" />
 
     <ImageButton
-        android:id="@+id/learn_back_button"
+        android:id="@+id/test_back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -46,13 +58,5 @@
         app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"
         app:tint="@color/main" />
 
-    <Button
-        android:id="@+id/learn_next_bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
-        android:text="Далее"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/learn_word_ru" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
