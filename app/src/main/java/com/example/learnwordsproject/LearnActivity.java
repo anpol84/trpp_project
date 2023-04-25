@@ -25,9 +25,9 @@ public class LearnActivity extends AppCompatActivity {
         learnWordTextRu = findViewById(R.id.learn_word_ru);
 
         int pos = (int) (Math.random() * 30);
-        System.out.println(pos);
         Word word = LevelActivity.words.get(pos);
         setWords(word);
+
         findViewById(R.id.learn_next_bt).setOnClickListener(b -> {
             onClickNextBt();
         });

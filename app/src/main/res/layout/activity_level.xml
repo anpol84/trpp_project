@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/learn_button"
+            android:id="@+id/to_learn_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -52,7 +52,7 @@
             android:text="Учить" />
 
         <Button
-            android:id="@+id/cards_ru_en_button"
+            android:id="@+id/to_cards_ru_en_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
@@ -61,7 +61,7 @@
             android:text="Карточкки Ru-En" />
 
         <Button
-            android:id="@+id/cards_en_ru_button"
+            android:id="@+id/to_cards_en_ru_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"

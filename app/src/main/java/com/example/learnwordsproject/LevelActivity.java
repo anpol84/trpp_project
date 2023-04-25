@@ -17,6 +17,7 @@ public class LevelActivity extends AppCompatActivity {
     static int currentPosition;
     ArrayAdapter<String> adapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +33,21 @@ public class LevelActivity extends AppCompatActivity {
 
         setListItems();
 
-        findViewById(R.id.learn_button).setOnClickListener((b)->{
+        findViewById(R.id.to_learn_button).setOnClickListener((b) -> {
             startActivity(new Intent(this, LearnActivity.class));
         });
+        findViewById(R.id.to_cards_ru_en_button).setOnClickListener(b -> {
+            startCards(false);
+        });
+        findViewById(R.id.to_cards_en_ru_button).setOnClickListener(b -> {
+            startCards(true);
+        });
+    }
+
+    private void startCards(boolean value) {
+        Intent intent = new Intent(this, CardsActivity.class);
+        intent.putExtra("EN-RU", value);
+        startActivity(intent);
     }
 
     private void setListItems() {
@@ -56,7 +69,7 @@ public class LevelActivity extends AppCompatActivity {
         for (int i = startnumber; i < startnumber + 30; i++) {
             Word word = new Word(englishWordsArr[i], russianWordsArr[i]);
             words.add(word);
-            listItems.add(i%30+1 + ". "+word.englishWord + " — " + word.russianWord);
+            listItems.add(i % 30 + 1 + ". " + word.englishWord + " — " + word.russianWord);
         }
     }
 
